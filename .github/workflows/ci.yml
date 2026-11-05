@@ -24,14 +24,15 @@ jobs:
 
       - name: Style (non bloquant)
         run: flake8 dags/ --max-line-length 120 --exit-zero
-test-dags:
-  needs: lint
-  runs-on: ubuntu-latest
-  env:
-    AIRFLOW_VERSION: "3.0.0"
-    PYTHON_VERSION: "3.12"
-    AIRFLOW_HOME: ${{ git1hub.workspace }}/airflow_home
-    AIRFLOW__CORE__LOAD_EXAMPLES: "False"
+
+  test-dags:
+    needs: lint
+    runs-on: ubuntu-latest
+    env:
+      AIRFLOW_VERSION: "3.1.0"
+      PYTHON_VERSION: "3.12"
+      AIRFLOW_HOME: ${{ github.workspace }}/airflow_home
+      AIRFLOW__CORE__LOAD_EXAMPLES: "False"
     steps:
       - name: Récupérer le code
         uses: actions/checkout@v4
