@@ -1,6 +1,7 @@
 from datetime import datetime
 from airflow.sdk import dag, task
 
+
 @dag(
     dag_id="demo_ok",
     schedule="@daily",
@@ -14,4 +15,6 @@ def demo_ok():
         print("Tout va bien")
 
     dire_bonjour()
+
+
 demo_ok()
